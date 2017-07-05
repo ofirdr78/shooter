@@ -14,3 +14,12 @@
     top: 100px;
     left: 100px;
 }
+
+.weapon {
+    position: absolute;
+    display: block;
+    top: 0px;
+    left: 260px;
+    height: 100px;
+    width: 200px;
+}

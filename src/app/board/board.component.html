@@ -1,8 +1,10 @@
 <div class="board">
 <img src="/assets/terror.jpg" draggable="false" (click)=clicked($event)/>
 
-<img *ngFor="let shot of shots" [src]="currentWeapon.hole" style="position: absolute; width: 200px; height: 200px;" 
-[style.top.px]="shot.posY-150" [style.left.px]="shot.posX-100"  draggable="false" (mousedown)=clicked($event)/>
+<img [src]="currentWeapon.path" class="weapon"/>
+
+<img *ngFor="let shot of shots" [src]="currentWeapon.hole" style="position: absolute; width: 220px; height: 200px;" 
+[style.top.px]="shot.posY-187" [style.left.px]="shot.posX-102"  draggable="false" (mousedown)=clicked($event)/>
 
   <button class="newgame" (click)="newgame()"> New Game</button> 
 

@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ChangeDetectorRef } from '@angular/core';
 import { AppService } from '../app.service';  
+
 
 @Component({
   selector: 'app-board',
@@ -16,18 +17,22 @@ export class BoardComponent implements OnInit {
 
   currentWeapon: { name: string; path: string; sound: string; hole: string};
 
-  constructor(private _appService: AppService) {
+  constructor(private _appService: AppService, private cdRef:ChangeDetectorRef) {
 
     this.shots = [];
     this.audio = new Audio();
     this.currentWeapon = this._appService.getWeapon();
+    this.cdRef.markForCheck(); // make it check for changes
+
    
    }
+
 
   ngOnInit() { 
   }
 
   clicked($event) { 
+    
      this.shots = this._appService.getShots();
 
      if (this.currentWeapon != this._appService.getWeapon()){
@@ -36,9 +41,7 @@ export class BoardComponent implements OnInit {
      this.currentWeapon = this._appService.getWeapon();
      console.log(this._appService.getWeapon());
  
-    let x = $event.screenX;
-    let y = $event.screenY
-    this._appService.addShot(x, y);
+    this._appService.addShot($event.screenX, $event.screenY);
 
     // this.shotsChange.emit(this.shots.push(this.currentShot));
      this.audio.src = this.currentWeapon.sound;
@@ -49,9 +52,10 @@ export class BoardComponent implements OnInit {
   }
 
   newgame() {
+    this.shots = [];
     this._appService.changeWeapon(0);
     this._appService.clearShots();
-    this.shots = [];
+
 
   }
 
