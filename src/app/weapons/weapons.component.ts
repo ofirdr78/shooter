@@ -4,8 +4,7 @@ import { AppService } from '../app.service';
 @Component({
   selector: 'app-weapons',
   templateUrl: './weapons.component.html',
-  styleUrls: ['./weapons.component.css'],
-  providers: [AppService] 
+  styleUrls: ['./weapons.component.css']
 })
 export class WeaponsComponent implements OnInit {
   @Input() shots;
@@ -21,11 +20,13 @@ export class WeaponsComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.value = this._appService.getApp();  
+     this.value=this._appService.getWeapons();
   }
  
    weaponNumber(i: number) {
    this._appService.changeWeapon(i);
-   console.log(this._appService.getWeapon());
- }
+   this._appService.clearShots();
+
+  }
+   
 }
