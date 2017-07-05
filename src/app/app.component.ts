@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+   shots: { posX: number; posY: number }[];
+   weapons: { name: string; path: string; sound: string, hole: string }[];
+   currentWeapon: { name: string; path: string; sound: string, hole: string };
+   
 }
