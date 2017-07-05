@@ -16,14 +16,14 @@ shots: { posX: number; posY: number }[];
  }
     
   getWeapons(): { name: string; path: string; sound: string; hole: string}[] { 
-      return this.weapons }
+      return this.weapons; }
 
   changeWeapon(number) {
      this.chosenWeapon = this.weapons[number];
   }
 
    getWeapon(): { name: string; path: string; sound: string; hole: string} { 
-      return this.chosenWeapon }
+      return this.chosenWeapon; }
 
    addShot(X, Y) {
        this.shots.push({posX: X, posY: Y});
