@@ -1,5 +1,6 @@
 <div class="box">
 
-  <img *ngFor="let weapon of value; let i = index" [src]="weapon.path" [title]="weapon.name" class="weapons" (click)=weaponNumber(i)/> 
+  <img *ngFor="let weapon of value; let i = index" [src]="weapon.path"
+     [ngClass]="{'selected': i == indexWeapon}" [title]="weapon.name" class="weapons" (click)=weaponNumber(i)/> 
 
 </div>

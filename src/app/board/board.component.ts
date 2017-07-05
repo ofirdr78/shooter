@@ -35,9 +35,9 @@ export class BoardComponent implements OnInit {
     
      this.shots = this._appService.getShots();
 
-     if (this.currentWeapon != this._appService.getWeapon()){
-         this._appService.clearShots();
-     }
+    //  if (this.currentWeapon != this._appService.getWeapon()){
+    //      this._appService.clearShots();
+    //  }
      this.currentWeapon = this._appService.getWeapon();
      console.log(this._appService.getWeapon());
  
@@ -53,7 +53,9 @@ export class BoardComponent implements OnInit {
 
   newgame() {
     this.shots = [];
+    this._appService.setNewGameTrue();
     this._appService.changeWeapon(0);
+    this._appService.setNewGameFalse();
     this._appService.clearShots();
 
 
