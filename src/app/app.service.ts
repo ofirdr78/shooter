@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-
+import { Weapon } from './app.module'
 
 @Injectable()
 export class AppService { 
-weapons: { name: string; path: string; sound: string; hole: string}[];
-chosenWeapon: { name: string; path: string; sound: string; hole: string};
+weapons: Weapon[];
+chosenWeapon: Weapon;
 shots: { posX: number; posY: number }[];
 audio: any;
 newGame: boolean;
@@ -35,7 +35,7 @@ newGame: boolean;
      
   }
 
-   getWeapon(): { name: string; path: string; sound: string; hole: string} { 
+   getWeapon(): Weapon { 
       return this.chosenWeapon; }
 
    addShot(X, Y) {

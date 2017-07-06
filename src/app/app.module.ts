@@ -19,3 +19,10 @@ import { AppService } from './app.service';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export class Weapon {
+  name: string;
+   path: string; 
+   sound: string; 
+   hole: string
+}
